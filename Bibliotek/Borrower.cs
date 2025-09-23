@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bibliotek
 {
-    internal class Borrower
+    internal class Borrower : User
     {
+        public override void Menu()
+        {
+
+        }
     }
 }

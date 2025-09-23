@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Bibliotek
 {
-    internal class User
+    abstract class User
     {
+
+        public string Name { get; set; }
+        public string Password { get; set; }
+        public abstract void Menu();
+
+
     }
 }

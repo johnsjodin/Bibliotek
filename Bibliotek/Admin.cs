@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Bibliotek
 {
-    internal class Admin
+    internal class Admin : User
     {
-    
-    
+        public override void Menu()
+        {
+
+        }
+
     }
 }
