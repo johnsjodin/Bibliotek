@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bibliotek
+﻿namespace Bibliotek
 {
-    internal class User
+    internal abstract class User
     {
+        string Name { get; set; }
+
+        public abstract void ShowMenu();
     }
 }

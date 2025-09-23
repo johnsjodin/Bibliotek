@@ -1,8 +1,7 @@
 ﻿namespace Bibliotek
 {
-    internal class LoggaIn
+    internal class FileHandler
     {
-       
         
     }
 }
