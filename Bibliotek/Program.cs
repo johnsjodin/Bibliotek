@@ -24,6 +24,17 @@
             Console.WriteLine();
             Console.ResetColor();
 
+            User loggedInUser = LoggaIn.Login();
+
+            if (loggedInUser != null)
+            {
+                loggedInUser.Menu();
+            }
+            else
+            {
+                Begin();
+            }
+
         }
             
     }
