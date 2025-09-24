@@ -1,37 +1,37 @@
 ﻿namespace Bibliotek
 {
-    internal class Validering
+    internal class ValidateInput
     {
         public static int GetInt()
         {
-            int Heltal;
+            int intInput;
 
-            while (!int.TryParse(Console.ReadLine(), out Heltal))
+            while (!int.TryParse(Console.ReadLine(), out intInput))
             {
                 Console.WriteLine("Felaktig inmatning, försök igen:");
 
             }
-            return Heltal;
+            return intInput;
         }
         public static double GetDouble()
         {
-            double tal;
-            while (!double.TryParse(Console.ReadLine(), out tal))
+            double doubleInput;
+            while (!double.TryParse(Console.ReadLine(), out doubleInput))
             {
                 Console.WriteLine("Felaktig inmatning, försök igen:");
 
             }
-            return tal;
+            return doubleInput;
         }
         public static string GetString()
         {
-            string text = Console.ReadLine();
-            while (string.IsNullOrWhiteSpace(text))
+            string stringInput = Console.ReadLine();
+            while (string.IsNullOrWhiteSpace(stringInput))
             {
                 Console.WriteLine("Felaktig inmatning, försök igen:");
-                text = Console.ReadLine();
+                stringInput = Console.ReadLine();
             }
-            return text;
+            return stringInput;
         }
     }
 }

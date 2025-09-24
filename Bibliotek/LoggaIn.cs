@@ -12,9 +12,9 @@
         public static User Login()
         {
             Console.Write("Användarnamn: ");
-            string name = Validering.GetString().ToLower();
+            string name = ValidateInput.GetString().ToLower();
             Console.Write("Lösenord: ");
-            string password = Validering.GetString();
+            string password = ValidateInput.GetString();
 
             User foundUser = null;
 
