@@ -1,8 +1,14 @@
 [
   {
+feature/book-repository
     "ISBN": 1234,
     "Title": "The Green Mile",
     "Author": "Stephen King",
+
+    "ISBN": 123,
+    "Title": "a",
+    "Author": "a",
+
     "IsBorrowed": false,
     "Available": "Tillg\u00E4nglig"
   }

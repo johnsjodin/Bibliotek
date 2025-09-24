@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bibliotek
+﻿namespace Bibliotek
 {
     internal class Book
     {
@@ -14,17 +8,12 @@ namespace Bibliotek
         public bool IsBorrowed { get; private set; }
         public string Available => IsBorrowed ? "Utlånad" : "Tillgänglig";
 
-        // Constructor för böcker utan I-S-B-N
-        public Book(string title, string author)
-        {
-            Title = title;
-            Author = author;
-        }
-
         // Constructor för böcker med I-S-B-N
-        public Book(int isbn, string title, string author) : this(title, author)
+        public Book(int isbn, string title, string author)
         {
             ISBN = isbn;
+            Title = title;
+            Author = author;
         }
 
         // Låna bok

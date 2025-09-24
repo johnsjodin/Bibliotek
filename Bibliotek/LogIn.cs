@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bibliotek
+﻿namespace Bibliotek
 {
-    internal class LoggaIn
+    internal class LogIn
     {
         private static List<User> users = new List<User>
         {
@@ -18,10 +12,9 @@ namespace Bibliotek
         public static User Login()
         {
             Console.Write("Användarnamn: ");
-            string name = Validering.GetString().ToLower();
+            string name = ValidateInput.GetString().ToLower();
             Console.Write("Lösenord: ");
-            string password = Validering.GetString();
-
+            string password = ValidateInput.GetString();
 
             User foundUser = null;
 
@@ -45,11 +38,10 @@ namespace Bibliotek
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Fel användarnamn eller lösenord.");
+                Console.WriteLine("\nFel användarnamn eller lösenord.");
                 Console.ResetColor();
                 return null;
             }
-
         }
     }
 }

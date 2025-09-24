@@ -4,38 +4,44 @@
     {
         static void Main(string[] args)
         {
-            Begin();
+            var repo = new BookRepository();
 
-
-        }
-
-        public static void Begin()
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine();
-            Console.WriteLine("____________________________");
-            Console.WriteLine();
-            Console.WriteLine("****LINKÖPINGS BIBLIOTEK****");
-            Console.WriteLine();
-            Console.WriteLine("         VÄLKOMMEN!         ");
-            Console.WriteLine("____________________________");
-            Console.WriteLine();
-            Console.WriteLine("Logga in här nedan");
-            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("      * * * * * * * * * * * * * * * *");
+            Console.WriteLine("      * Välkommen till biblioteket! *");
+            Console.WriteLine("      * * * * * * * * * * * * * * * *");
             Console.ResetColor();
+            Console.WriteLine("\nVänligen logga in med din användare.\n");
 
-            User loggedInUser = LoggaIn.Login();
+            //Console.WriteLine("\nÄr du bibliotekarie tryck 1:"); // Lärde mig en ny funktion \n som gör radbrytningar
+            //Console.WriteLine("Är du låntagare tryck 2:");
+            //Console.WriteLine("För att avsluta tryck 3:");
 
-            if (loggedInUser != null)
+            //string userChoice = Console.ReadLine();
+
+            User loggedInUser = LogIn.Login();
+
+            while (true)
             {
-                loggedInUser.Menu();
+                if (loggedInUser != null)
+                {
+                    loggedInUser.ShowMenu(repo);
+                }
+                else
+                {
+                    Console.WriteLine("\nInloggning misslyckades.");
+                    Console.Write("Tryck 1 för att försöka igen, eller annan knapp för att avsluta: ");
+                    string retryChoice = ValidateInput.GetString();
+                    if (retryChoice == "1")
+                    {
+                        loggedInUser = LogIn.Login();
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
             }
-            else
-            {
-                Begin();
-            }
-
         }
-            
     }
 }
