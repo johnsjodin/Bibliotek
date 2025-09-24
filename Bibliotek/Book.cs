@@ -38,5 +38,15 @@
             Author.Contains(term, StringComparison.OrdinalIgnoreCase);
 
         public override string ToString() => $"{Title} — {Author} (ISBN: {ISBN}) [{Available}]";
+
+        internal static void ShowAllBooks()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void AddBook()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
