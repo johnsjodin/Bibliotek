@@ -1,0 +1,9 @@
+[
+  {
+    "ISBN": 123,
+    "Title": "a",
+    "Author": "a",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  }
+]
