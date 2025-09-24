@@ -1,6 +1,6 @@
 ﻿namespace Bibliotek
 {
-    internal class LoggaIn
+    internal class LogIn
     {
         private static List<User> users = new List<User>
         {
@@ -38,7 +38,7 @@
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Fel användarnamn eller lösenord.");
+                Console.WriteLine("\nFel användarnamn eller lösenord.");
                 Console.ResetColor();
                 return null;
             }

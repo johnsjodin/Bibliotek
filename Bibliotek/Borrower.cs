@@ -3,13 +3,14 @@
     internal class Borrower : User
     {
         public Borrower() { }
-        public override void ShowMenu()
+        public override void ShowMenu(BookRepository repo)
         {
             Console.WriteLine("\nLåntagare-meny:");
             Console.WriteLine("1. Låna bok");
             Console.WriteLine("2. Lämna tillbaka bok");
             Console.WriteLine("3. Visa alla böcker");
-            Console.WriteLine("4. Logga ut");
+            Console.WriteLine("4. Logga ut\n");
+            Console.Write("Ange val: ");
 
             string choice = Console.ReadLine();
 

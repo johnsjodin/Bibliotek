@@ -4,6 +4,6 @@
     {
         public string Name { get; set; }
         public string Password { get; set; }
-        public abstract void ShowMenu();
+        public abstract void ShowMenu(BookRepository repo);
     }
 }
