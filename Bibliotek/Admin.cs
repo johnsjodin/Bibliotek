@@ -13,7 +13,7 @@
             Console.WriteLine("5. Logga ut\n");
             Console.Write("Ange val: ");
 
-            string choice = Console.ReadLine();
+            string choice = ValidateInput.GetString();
 
             // Hantera admins val här
             switch (choice)
@@ -25,7 +25,7 @@
                     break;
                 case "2":
                     Console.Write("Ange söksträng: ");
-                    string term = Console.ReadLine();
+                    string term = ValidateInput.GetString();
                     var results = repo.SearchBook(term);
                     foreach (var b in results)
                     {

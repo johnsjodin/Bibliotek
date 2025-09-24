@@ -12,7 +12,7 @@
             Console.WriteLine("4. Logga ut\n");
             Console.Write("Ange val: ");
 
-            string choice = Console.ReadLine();
+            string choice = ValidateInput.GetString();
 
             // Hantera låntagarens val här
             switch (choice)
