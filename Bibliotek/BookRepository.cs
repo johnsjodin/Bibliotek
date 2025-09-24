@@ -20,9 +20,12 @@
         // Ta bort bok via I-S-B-N
         public bool RemoveBook(int isbn)
         {
+            
             var book = _books.FirstOrDefault(b => b.ISBN == isbn);
             if (book == null) return false;
+            
             _books.Remove(book);
+            FileHandler.SaveToFile(_books, _filePath);
             return true;
         }
 
