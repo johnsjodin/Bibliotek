@@ -1,4 +1,6 @@
-﻿namespace Bibliotek
+﻿using static System.Reflection.Metadata.BlobBuilder;
+
+namespace Bibliotek
 {
     internal class Admin : User
     {
@@ -20,6 +22,13 @@
             {
                 case "1":
                     Book book = ValidateInput.ValidateBookInput();
+
+                    if (repo.FindBook(book.ISBN) != null)
+                    {
+                        Console.WriteLine($"Boken med ISBN {book.ISBN} finns redan i systemet.");
+                        break;
+                    }
+
                     repo.AddBook(book);
                     Console.WriteLine($"Boken '{book.Title}' av {book.Author} med ISBN {book.ISBN} har lagts till.");
                     break;
@@ -34,9 +43,25 @@
                     break;
                 case "3":
                     Console.WriteLine("Ta bort bok");
+                    Console.WriteLine();
+                    Console.Write("Ange ISBN på boken som ska tas bort: ");
+                    int isbnToRemove = ValidateInput.GetInt();
+                    if (repo.RemoveBook(isbnToRemove))
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine($"Boken med ISBN {isbnToRemove} har tagits bort.");
+                        
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine($"Ingen bok med ISBN {isbnToRemove} finns i systemet.");
+                    }
                     break;
+
                 case "4":
                     Console.WriteLine("Visa alla");
+                    repo.ListAll();
                     break;
                 case "5":
                     Console.WriteLine("Loggar ut...");
