@@ -7,40 +7,39 @@
         {
             Console.WriteLine("\nAdmin-meny:");
             Console.WriteLine("1. Lägg till bok");
-            Console.WriteLine("2. Sök efter bok via titel eller författare");
-            Console.WriteLine("3. Sök efter bok via ISBN-kod");
-            Console.WriteLine("4. Ta bort bok");
-            Console.WriteLine("5. Visa alla böcker");
-            Console.WriteLine("6. Logga ut\n");
+            Console.WriteLine("2. Sök efter bok");
+            Console.WriteLine("3. Ta bort bok");
+            Console.WriteLine("4. Visa alla böcker");
+            Console.WriteLine("5. Logga ut\n");
             Console.Write("Ange val: ");
 
             string choice = Console.ReadLine();
 
-            // Hantera låntagarens val här
+            // Hantera admins val här
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("\nLägg till bok\n");
-                    Console.Write("Ange titel på boken du vill lägga till: ");
-                    string title = Console.ReadLine();
-                    Console.Write("Ange författarens namn: ");
-                    string author = Console.ReadLine();
-                    Console.Write("Ange bokens ISBN-kod: ");
-                    int isbn = int.Parse(Console.ReadLine());
-                    Book book = new Book(isbn, title, author);
+                    Book book = ValidateInput.ValidateBookInput();
                     repo.AddBook(book);
+                    Console.WriteLine($"Boken '{book.Title}' av {book.Author} med ISBN {book.ISBN} har lagts till.");
                     break;
                 case "2":
-                    Console.WriteLine("Sök titel");
+                    Console.Write("Ange söksträng: ");
+                    string term = Console.ReadLine();
+                    var results = repo.SearchBook(term);
+                    foreach (var b in results)
+                    {
+                        Console.WriteLine($"{b.Title} av {b.Author}, ISBN: {b.ISBN}");
+                    }
                     break;
                 case "3":
-                    Console.WriteLine("Sök ISBN");
-                    break;
-                case "4":
                     Console.WriteLine("Ta bort bok");
                     break;
-                case "5":
+                case "4":
                     Console.WriteLine("Visa alla");
+                    break;
+                case "5":
+                    Console.WriteLine("Loggar ut...");
                     break;
                 default:
                     Console.WriteLine("Ogiltigt val.");

@@ -7,13 +7,14 @@
 
         public BookRepository()
         {
-            _books = FileHandler<Book>.LoadFromFile(_filePath);
+            _books = FileHandler.LoadFromFile(_filePath);
         }
 
         // Lägg till bok i listan
         public void AddBook(Book book)
         {
             _books.Add(book);
+            FileHandler.SaveToFile(_books, _filePath);
         }
 
         // Ta bort bok via I-S-B-N
@@ -31,9 +32,15 @@
             return _books.FirstOrDefault(b => b.ISBN == isbn);
         }
 
-        // Sök böcker via titel eller författare
-        public List<Book> Search(string term)
+        public List<Book> SearchBook(string term)
         {
+            // Försök tolka term som ISBN
+            if (int.TryParse(term, out int isbn))
+            {
+                var book = FindBook(isbn);
+                return book != null ? new List<Book> { book } : new List<Book>();
+            }
+            // Annars sök på titel/författare
             return _books.Where(b => b.Matches(term)).ToList();
         }
 

@@ -1,7 +1,7 @@
 ﻿using Bibliotek;
 using System.Text.Json;
 
-internal static class FileHandler<T>
+internal static class FileHandler
 {
     public static void SaveToFile(List<Book> books, string filePath)
     {
