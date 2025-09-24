@@ -1,26 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bibliotek
+﻿namespace Bibliotek
 {
     internal class Validering
     {
         public static int GetInt()
         {
             int Heltal;
+
             while (!int.TryParse(Console.ReadLine(), out Heltal))
             {
                 Console.WriteLine("Felaktig inmatning, försök igen:");
 
             }
-
             return Heltal;
-
         }
-
         public static double GetDouble()
         {
             double tal;
@@ -29,11 +21,8 @@ namespace Bibliotek
                 Console.WriteLine("Felaktig inmatning, försök igen:");
 
             }
-
             return tal;
-
         }
-
         public static string GetString()
         {
             string text = Console.ReadLine();

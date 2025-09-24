@@ -1,14 +1,13 @@
-﻿
-using System;
-using Bibliotek;
-
-namespace Bibliotek
+﻿namespace Bibliotek
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-         
+            Borrower borrower = new Borrower();
+            Librarian librarian = new Librarian();
+            Admin admin = new Admin();
+
             string adminUsername = "bibliotekarie";
             int adminPassword = 1234;
 
@@ -44,7 +43,7 @@ namespace Bibliotek
                         {
                             Console.Clear();
                             Console.WriteLine("Inloggning lyckades som bibliotekarie.");
-                            Meny.LibraryMenu();
+                            librarian.ShowMenu();
                             break;
                         }
                         else
@@ -56,7 +55,7 @@ namespace Bibliotek
 
                 case "2":
                     Console.WriteLine("Inloggad som låntagare.");
-                    Borrower.BorrowerMenu();
+                    borrower.ShowMenu();
                     break;
 
                 case "3":

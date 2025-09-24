@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bibliotek
+﻿namespace Bibliotek
 {
     internal class LoggaIn
     {
@@ -21,7 +15,6 @@ namespace Bibliotek
             string name = Validering.GetString().ToLower();
             Console.Write("Lösenord: ");
             string password = Validering.GetString();
-
 
             User foundUser = null;
 
@@ -49,7 +42,6 @@ namespace Bibliotek
                 Console.ResetColor();
                 return null;
             }
-
         }
     }
 }
