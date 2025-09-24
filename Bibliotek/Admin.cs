@@ -1,17 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bibliotek
+﻿namespace Bibliotek
 {
     internal class Admin : User
     {
-        public override void Menu()
+        public Admin() { }
+        public override void ShowMenu(BookRepository repo)
         {
+            Console.WriteLine("\nAdmin-meny:");
+            Console.WriteLine("1. Lägg till bok");
+            Console.WriteLine("2. Sök efter bok");
+            Console.WriteLine("3. Ta bort bok");
+            Console.WriteLine("4. Visa alla böcker");
+            Console.WriteLine("5. Logga ut\n");
+            Console.Write("Ange val: ");
 
+            string choice = Console.ReadLine();
+
+            // Hantera admins val här
+            switch (choice)
+            {
+                case "1":
+                    Book book = ValidateInput.ValidateBookInput();
+                    repo.AddBook(book);
+                    Console.WriteLine($"Boken '{book.Title}' av {book.Author} med ISBN {book.ISBN} har lagts till.");
+                    break;
+                case "2":
+                    Console.Write("Ange söksträng: ");
+                    string term = Console.ReadLine();
+                    var results = repo.SearchBook(term);
+                    foreach (var b in results)
+                    {
+                        Console.WriteLine($"{b.Title} av {b.Author}, ISBN: {b.ISBN}");
+                    }
+                    break;
+                case "3":
+                    Console.WriteLine("Ta bort bok");
+                    break;
+                case "4":
+                    Console.WriteLine("Visa alla");
+                    break;
+                case "5":
+                    Console.WriteLine("Loggar ut...");
+                    break;
+                default:
+                    Console.WriteLine("Ogiltigt val.");
+                    break;
+            }
         }
-
     }
 }

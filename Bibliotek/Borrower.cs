@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Bibliotek
+﻿namespace Bibliotek
 {
-    internal class Borrower
+    internal class Borrower : User
     {
-        public static void BorrowerMenu()
-
+        public Borrower() { }
+        public override void ShowMenu(BookRepository repo)
         {
-            Console.WriteLine("\nLåntagarmeny:");
+            Console.WriteLine("\nLåntagare-meny:");
             Console.WriteLine("1. Låna bok");
-            Console.WriteLine("2. Återlämna bok");
-            Console.WriteLine("3. Visa lånade böcker");
-            Console.WriteLine("4. Logga ut");
+            Console.WriteLine("2. Lämna tillbaka bok");
+            Console.WriteLine("3. Visa alla böcker");
+            Console.WriteLine("4. Logga ut\n");
+            Console.Write("Ange val: ");
 
             string choice = Console.ReadLine();
 
@@ -23,13 +18,13 @@ namespace Bibliotek
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("Låna bok...");
+                    Console.WriteLine("Låna");
                     break;
                 case "2":
-                    Console.WriteLine("Återlämna bok...");
+                    Console.WriteLine("Lämna");
                     break;
                 case "3":
-                    Console.WriteLine("Visa lånade böcker...");
+                    Console.WriteLine("Visa alla böcker...");
                     break;
                 case "4":
                     Console.WriteLine("Loggar ut...");
