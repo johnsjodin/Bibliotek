@@ -11,7 +11,8 @@
             Console.WriteLine("      * Välkommen till biblioteket! *");
             Console.WriteLine("      * * * * * * * * * * * * * * * *");
             Console.ResetColor();
-            Console.WriteLine("\nVänligen logga in med din användare.\n");
+            Console.WriteLine("Vänligen logga in med din användare.");
+
 
             //Console.WriteLine("\nÄr du bibliotekarie tryck 1:"); // Lärde mig en ny funktion \n som gör radbrytningar
             //Console.WriteLine("Är du låntagare tryck 2:");
@@ -20,12 +21,30 @@
             //string userChoice = Console.ReadLine();
 
             User loggedInUser = LogIn.Login();
+            bool jusLoggedOut = false;
 
             while (true)
             {
+                if(jusLoggedOut)
+                {
+                    Console.WriteLine("Du har loggat ut.Vänligen logga in igen.");
+                    jusLoggedOut = false;
+
+                }
+
+                if (loggedInUser == null)
+                {
+                    
+                    loggedInUser = LogIn.Login();
+                }
+
+
+
                 if (loggedInUser != null)
                 {
                     loggedInUser.ShowMenu(repo);
+                    loggedInUser = null; // Efter meny, logga ut användaren
+                    jusLoggedOut = true;
                 }
                 else
                 {

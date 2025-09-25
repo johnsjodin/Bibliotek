@@ -57,7 +57,7 @@ namespace Bibliotek
                     break;
                 case "5":
                     Console.WriteLine("Loggar ut...");
-                    break;
+                    return;
                 default:
                     Console.WriteLine("Ogiltigt val.");
                     break;

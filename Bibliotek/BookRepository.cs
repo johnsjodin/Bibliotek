@@ -4,27 +4,24 @@
     {
         private List<Book> _books = new List<Book>();
         private string _filePath = "../../../books.json";
-        
 
-      
+        public BookRepository()
+        {
+            _books = FileHandler.LoadFromFile(_filePath);
+        }
 
         // Lägg till bok i listan
         public void AddBook(Book book)
         {
-            if (FindBook(book.ISBN) != null)
-            {
-                Console.WriteLine($"Boken med ISBN {book.ISBN} finns redan i systemet.");
-                return;
-            }
-
-            Console.WriteLine($"Boken '{book.Title}' av {book.Author} med ISBN {book.ISBN} har lagts till.");
             _books.Add(book);
-            FileHandler.SaveToFile(_books, _filePath);
+            FileHandler.SaveToFile(_books, _filePath); //
         }
 
         // Ta bort bok via I-S-B-N
         public bool RemoveBook(int isbn)
         {
+
+
             
             var book = _books.FirstOrDefault(b => b.ISBN == isbn);
             if (book == null) return false;
