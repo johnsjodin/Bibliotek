@@ -14,7 +14,7 @@
         public void AddBook(Book book)
         {
             _books.Add(book);
-            FileHandler.SaveToFile(_books, _filePath);
+            FileHandler.SaveToFile(_books, _filePath); //
         }
 
         // Ta bort bok via I-S-B-N
