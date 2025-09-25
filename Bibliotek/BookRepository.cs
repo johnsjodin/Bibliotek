@@ -9,8 +9,9 @@
       
 
         // Lägg till bok i listan
-        public void AddBook(Book book)
+        public void AddBook()
         {
+            Book book = ValidateInput.ValidateBookInput();
             if (FindBook(book.ISBN) != null)
             {
                 Console.WriteLine($"Boken med ISBN {book.ISBN} finns redan i systemet.");
