@@ -31,7 +31,7 @@ namespace Bibliotek
                     break;
                 default:
                     Console.WriteLine("Ogiltigt val.");
-               master
+                    break;
             }
         }
     }
