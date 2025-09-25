@@ -40,17 +40,68 @@
             return _books.FirstOrDefault(b => b.ISBN == isbn);
         }
 
-        public List<Book> SearchBook(string term)
+        public void SearchBook()
         {
-            // Försök tolka term som ISBN
-            if (int.TryParse(term, out int isbn))
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine();
+            Console.Write("Ange sökord (titel eller författare): ");
+            Console.ResetColor();
+
+            string searchTerm = ValidateInput.GetString().ToLower();
+
+            List<Book> matchedBooks = _books.Where(b => b.Title.ToLower().Contains(searchTerm) || b.Author.ToLower().Contains(searchTerm)).ToList();
+
+            if (matchedBooks.Count > 0)
             {
-                var book = FindBook(isbn);
-                return book != null ? new List<Book> { book } : new List<Book>();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("------------------------------------------------------------");
+                Console.WriteLine("Hittade böcker:");
+                Console.ResetColor();
+
+                foreach (var book in matchedBooks)
+                {
+                    Console.WriteLine();
+                    Console.Write("Titel: ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(book.Title);
+                    Console.ResetColor();
+                    Console.Write(" Författare: ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(book.Author);
+                    Console.ResetColor();
+                    Console.Write(" ISBN: ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(book.ISBN);
+                    Console.ResetColor();
+
+                    if (book.IsBorrowed)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"Status: {book.IsBorrowed}");
+                        Console.ResetColor();
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"Status: {book.IsBorrowed}");
+                        Console.ResetColor();
+                        Console.WriteLine();
+                    }
+
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("--------------------------------------------------------------");
+                Console.ResetColor();
             }
-            // Annars sök på titel/författare
-            return _books.Where(b => b.Matches(term)).ToList();
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Inga böcker matchade din sökning.");
+                Console.ResetColor();
+            }
         }
+
 
         // Lista alla böcker
         public void ListAll()

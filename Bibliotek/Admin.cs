@@ -1,4 +1,5 @@
-﻿using static System.Reflection.Metadata.BlobBuilder;
+﻿using System.Reflection.Metadata.Ecma335;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Bibliotek
 {
@@ -21,17 +22,11 @@ namespace Bibliotek
             switch (choice)
             {
                 case "1":
-                    Book book = ValidateInput.ValidateBookInput();
+                    Book book = ValidateInput.ValidateBookInput();  
                     repo.AddBook(book);
                     break;
                 case "2":
-                    Console.Write("Ange söksträng: ");
-                    string term = ValidateInput.GetString();
-                    var results = repo.SearchBook(term);
-                    foreach (var b in results)
-                    {
-                        Console.WriteLine($"{b.Title} av {b.Author}, ISBN: {b.ISBN}");
-                    }
+                    repo.SearchBook();
                     break;
                 case "3":
                     Console.WriteLine("Ta bort bok");
@@ -57,7 +52,7 @@ namespace Bibliotek
                     break;
                 case "5":
                     Console.WriteLine("Loggar ut...");
-                    break;
+                    return;
                 default:
                     Console.WriteLine("Ogiltigt val.");
                     break;

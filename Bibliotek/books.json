@@ -1,8 +1,22 @@
 [
   {
     "ISBN": 123,
-    "Title": "cfe",
-    "Author": "dxw",
+    "Title": "casper",
+    "Author": "Daniel",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 1234,
+    "Title": "Frankrike",
+    "Author": "France",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 12345,
+    "Title": "thahdh",
+    "Author": "erik",
     "IsBorrowed": false,
     "Available": "Tillg\u00E4nglig"
   }
