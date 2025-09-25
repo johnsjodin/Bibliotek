@@ -1,4 +1,4 @@
-﻿namespace Bibliotek
+namespace Bibliotek
 {
     internal class BookRepository
     {
