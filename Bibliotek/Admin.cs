@@ -22,15 +22,7 @@ namespace Bibliotek
             {
                 case "1":
                     Book book = ValidateInput.ValidateBookInput();
-
-                    if (repo.FindBook(book.ISBN) != null)
-                    {
-                        Console.WriteLine($"Boken med ISBN {book.ISBN} finns redan i systemet.");
-                        break;
-                    }
-
                     repo.AddBook(book);
-                    Console.WriteLine($"Boken '{book.Title}' av {book.Author} med ISBN {book.ISBN} har lagts till.");
                     break;
                 case "2":
                     Console.Write("Ange söksträng: ");
