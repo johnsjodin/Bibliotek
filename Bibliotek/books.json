@@ -1,15 +1,8 @@
 [
   {
-    "ISBN": 123,
-    "Title": "hfhfaha",
-    "Author": "aygen",
-    "IsBorrowed": false,
-    "Available": "Tillg\u00E4nglig"
-  },
-  {
-    "ISBN": 1234,
-    "Title": "daniel",
-    "Author": "dani",
+    "ISBN": 1,
+    "Title": "dan",
+    "Author": "hj",
     "IsBorrowed": false,
     "Available": "Tillg\u00E4nglig"
   }
