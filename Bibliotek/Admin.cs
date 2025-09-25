@@ -22,7 +22,7 @@ namespace Bibliotek
             switch (choice)
             {
                 case "1":
-                    Book book = ValidateInput.ValidateBookInput();
+                    Book book = ValidateInput.ValidateBookInput();  
                     repo.AddBook(book);
                     break;
                 case "2":
