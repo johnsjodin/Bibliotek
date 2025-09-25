@@ -31,7 +31,7 @@
                 {
                     Console.WriteLine("\nInloggning misslyckades.");
                     Console.Write("Tryck 1 för att försöka igen, eller annan knapp för att avsluta: ");
-                    string retryChoice = Console.ReadLine();
+                    string retryChoice = ValidateInput.GetString();
                     if (retryChoice == "1")
                     {
                         loggedInUser = LogIn.Login();
