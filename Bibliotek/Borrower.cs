@@ -18,13 +18,19 @@ namespace Bibliotek
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("Låna");
+                    Console.WriteLine("Vilken bok vill du låna. Ange ISBN");
+                    int borrowIsbn = ValidateInput.GetInt();
+                    repo.BorrowBook(borrowIsbn);
                     break;
                 case "2":
-                    Console.WriteLine("Lämna");
+                    Console.WriteLine("Vilken bok vill du lämna tillbaka. Ange ISBN");
+                    int returIsbn = ValidateInput.GetInt();
+                    Console.WriteLine("Lämna tillbaka");
+                    repo.ReturnBook(returIsbn);
                     break;
                 case "3":
                     Console.WriteLine("Visa alla böcker...");
+                    repo.ListAll();
                     break;
                 case "4":
                     Console.WriteLine("Loggar ut...");

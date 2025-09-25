@@ -1,4 +1,5 @@
-﻿using static System.Reflection.Metadata.BlobBuilder;
+﻿using System.Reflection.Metadata.Ecma335;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Bibliotek
 {
@@ -21,35 +22,17 @@ namespace Bibliotek
             switch (choice)
             {
                 case "1":
-                    Book book = ValidateInput.ValidateBookInput();
-                    repo.AddBook(book);
+                   
+                    repo.AddBook();
                     break;
                 case "2":
-                    Console.Write("Ange söksträng: ");
-                    string term = ValidateInput.GetString();
-                    var results = repo.SearchBook(term);
-                    foreach (var b in results)
-                    {
-                        Console.WriteLine($"{b.Title} av {b.Author}, ISBN: {b.ISBN}");
-                    }
+                    repo.SearchBook();
                     break;
+
                 case "3":
-                    Console.WriteLine("Ta bort bok");
-                    Console.WriteLine();
-                    Console.Write("Ange ISBN på boken som ska tas bort: ");
-                    int isbnToRemove = ValidateInput.GetInt();
-                    if (repo.RemoveBook(isbnToRemove))
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine($"Boken med ISBN {isbnToRemove} har tagits bort.");
-                        
-                    }
-                    else
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine($"Ingen bok med ISBN {isbnToRemove} finns i systemet.");
-                    }
+                    repo.RemoveBookInteraction();
                     break;
+                  
 
                 case "4":
                     Console.WriteLine("Visa alla");
