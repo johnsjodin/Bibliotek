@@ -7,7 +7,7 @@ internal class Librarian : User
     {
         int choice = 0;
 
-        while (choice != 3)
+        while (choice != 4)
         {
 
             Console.WriteLine();
@@ -19,7 +19,8 @@ internal class Librarian : User
             Console.WriteLine();
             Console.WriteLine("1. Lägg till bok.");
             Console.WriteLine("2. Visa alla böcker.");
-            Console.WriteLine("3. Avsluta");
+            Console.WriteLine("3. Sök efter en bok.");
+            Console.WriteLine("4. Avsluta");
 
             Console.Write("Ange ditt val: ");
             choice = ValidateInput.GetInt();
@@ -27,13 +28,16 @@ internal class Librarian : User
             switch (choice)
             {
                 case 1:
-                    Book.AddBook();
+                    repo.AddBook();
                     break;
                 case 2:
-                    Book.ShowAllBooks();
+                    repo.ListAll();
+                    break;
+                case 3:
+                    repo.SearchBook();                
                     break;
 
-                case 3:
+                case 4:
                     Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Librarian menyn avslutas");
