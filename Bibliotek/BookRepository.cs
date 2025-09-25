@@ -5,8 +5,11 @@
         private List<Book> _books = new List<Book>();
         private string _filePath = "../../../books.json";
         
+        public BookRepository()
+        {
+            _books = FileHandler.LoadFromFile(_filePath);
+        }
 
-      
 
         // Lägg till bok i listan
         public void AddBook()
@@ -97,15 +100,15 @@
 
                     if (book.IsBorrowed)
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"Status: {book.IsBorrowed}");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"Status: {book.Available}");
                         Console.ResetColor();
                         Console.WriteLine();
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"Status: {book.IsBorrowed}");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine($"Status: {book.Available}");
                         Console.ResetColor();
                         Console.WriteLine();
                     }
@@ -145,6 +148,7 @@
             var book = FindBook(isbn);
             if (book == null || book.IsBorrowed) return false;
             return book.Borrow();
+
         }
 
         // Lämna tillbaka en bok
