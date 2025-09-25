@@ -28,23 +28,11 @@ namespace Bibliotek
                 case "2":
                     repo.SearchBook();
                     break;
+
                 case "3":
-                    Console.WriteLine("Ta bort bok");
-                    Console.WriteLine();
-                    Console.Write("Ange ISBN på boken som ska tas bort: ");
-                    int isbnToRemove = ValidateInput.GetInt();
-                    if (repo.RemoveBook(isbnToRemove))
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine($"Boken med ISBN {isbnToRemove} har tagits bort.");
-                        
-                    }
-                    else
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine($"Ingen bok med ISBN {isbnToRemove} finns i systemet.");
-                    }
+                    repo.RemoveBookInteraction();
                     break;
+                  
 
                 case "4":
                     Console.WriteLine("Visa alla");
