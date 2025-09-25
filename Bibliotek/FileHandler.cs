@@ -24,6 +24,10 @@ internal static class FileHandler
                 return new List<Book>(); // tom lista om filen inte finns
 
             string json = File.ReadAllText(filePath);
+
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<Book>();
+
             var books = JsonSerializer.Deserialize<List<Book>>(json);
 
             return books ?? new List<Book>();
