@@ -1,22 +1,15 @@
 [
   {
     "ISBN": 123,
-    "Title": "casper",
-    "Author": "Daniel",
+    "Title": "hfhfaha",
+    "Author": "aygen",
     "IsBorrowed": false,
     "Available": "Tillg\u00E4nglig"
   },
   {
     "ISBN": 1234,
-    "Title": "Frankrike",
-    "Author": "France",
-    "IsBorrowed": false,
-    "Available": "Tillg\u00E4nglig"
-  },
-  {
-    "ISBN": 12345,
-    "Title": "thahdh",
-    "Author": "erik",
+    "Title": "daniel",
+    "Author": "dani",
     "IsBorrowed": false,
     "Available": "Tillg\u00E4nglig"
   }
