@@ -212,9 +212,11 @@ namespace Bibliotek
                 return;
             }
             book.Borrow();
+            FileHandler.SaveToFile(_books, _filePath);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Du har nu lånat boken.");
             Console.ResetColor();
+
         }
 
         // Lämna tillbaka en bok
@@ -238,9 +240,11 @@ namespace Bibliotek
                 return;
             }
             book.Return();
+            FileHandler.SaveToFile(_books, _filePath);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Du har nu lämnat tillbaka boken.");
             Console.ResetColor();
+            
         }
 
         public static void ShowErrorMessage(string message)
