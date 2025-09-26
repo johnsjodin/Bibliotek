@@ -8,8 +8,7 @@
 
             while (!int.TryParse(Console.ReadLine(), out intInput))
             {
-                Console.ForegroundColor= ConsoleColor.Red;
-                Console.WriteLine("Felaktig inmatning, försök igen:");
+                ShowErrorMessage("Felaktig inmatning, försök igen.");
                 Console.ResetColor();
             }
             return intInput;
@@ -19,8 +18,7 @@
             double doubleInput;
             while (!double.TryParse(Console.ReadLine(), out doubleInput))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Felaktig inmatning, försök igen:");
+                ShowErrorMessage("Felaktig inmatning, försök igen.");
                 Console.ResetColor();
             }
             return doubleInput;
@@ -30,9 +28,7 @@
             string stringInput = Console.ReadLine();
             while (string.IsNullOrWhiteSpace(stringInput))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Felaktig inmatning, försök igen:");
-                Console.ResetColor();
+                ShowErrorMessage("Felaktig inmatning, försök igen.");
                 stringInput = Console.ReadLine();
             }
             return stringInput;
@@ -48,6 +44,19 @@
             int isbn = ValidateInput.GetInt();
             Console.ResetColor();
             return new Book(isbn, title, author);
+        }
+        public static void ShowErrorMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        public static void ShowSuccessMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }

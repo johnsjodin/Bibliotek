@@ -41,9 +41,7 @@ namespace Bibliotek
                     case 4:
                         return;
                     default:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Ogiltigt val. Vänligen försök igen.");
-                        Console.ResetColor();
+                        ValidateInput.ShowErrorMessage("Ogiltigt val. Vänligen försök igen.");
                         break;
                 }
             }

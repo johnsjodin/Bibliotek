@@ -45,9 +45,7 @@
                     case 5:                  
                         return;
                     default:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Ogiltigt val.");
-                        Console.ResetColor();
+                        ValidateInput.ShowErrorMessage("Ogiltigt val. Vänligen försök igen.");
                         break;
                 }
             }
