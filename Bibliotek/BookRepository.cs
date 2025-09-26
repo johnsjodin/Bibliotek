@@ -1,4 +1,4 @@
-﻿namespace Bibliotek
+namespace Bibliotek
 {
     internal class BookRepository
     {
@@ -18,14 +18,14 @@
 
             Book book = ValidateInput.ValidateBookInput();
             if (FindBook(book.ISBN) != null)
-    {
-        Console.WriteLine($"Boken med ISBN {book.ISBN} finns redan i systemet.");
-        return;
-    }
- 
-    Console.WriteLine($"Boken '{book.Title}' av {book.Author} med ISBN {book.ISBN} har lagts till.");
-    _books.Add(book);
-    FileHandler.SaveToFile(_books, _filePath);
+            {
+                Console.WriteLine($"Boken med ISBN {book.ISBN} finns redan i systemet.");
+                return;
+            }
+
+            Console.WriteLine($"Boken '{book.Title}' av {book.Author} med ISBN {book.ISBN} har lagts till.");
+            _books.Add(book);
+            FileHandler.SaveToFile(_books, _filePath);
 
         }
 
@@ -60,9 +60,9 @@
             }
         }
 
-  
 
-        // Hitta bok via ISBN
+
+        // Hitta bok via I-S-B-N
         public Book? FindBook(int isbn)
         {
             return _books.FirstOrDefault(b => b.ISBN == isbn);

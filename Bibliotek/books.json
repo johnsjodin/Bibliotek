@@ -1,0 +1,16 @@
+[
+  {
+    "ISBN": 12345,
+    "Title": "The Nile",
+    "Author": "Liza Marklund",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 123,
+    "Title": "The Green Mile",
+    "Author": "Stephen King",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  }
+]
