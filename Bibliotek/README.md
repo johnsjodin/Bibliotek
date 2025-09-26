@@ -2,36 +2,53 @@
 
 ## Om projektet
 
-Detta projekt är ett bibliotekssystem byggt med .NET 8. Systemet är designat för att hantera böcker, låntagare och 
-utlåning på ett effektivt och modernt sätt. Applikationen är strukturerad för att vara skalbar, underhållbar och enkel 
-att vidareutveckla.
+Detta är ett konsolbaserat bibliotekssystem byggt i C# och .NET 8. Systemet hanterar böcker och låneprocesser, 
+och har tre olika användarroller: Bibliotekarie, Låntagare och Administratör. All data om böcker sparas i en JSON-fil.
 
-## Tekniker och ramverk
+Projektet är skrivet och designat av Grupp 6 i SYNE25.
 
-- **.NET 8**: Den senaste versionen av .NET-plattformen, vilket ger hög prestanda, säkerhet och långsiktig support.
-- **C#**: Programmeringsspråket som används för all backend-logik.
-- **Entity Framework Core**: Används för dataåtkomst och hantering av databasen via objektorienterad kod.
-- **Unit Testing**: Projektet är förberett för enhetstester för att säkerställa kodkvalitet och stabilitet.
-- **REST API**: Systemet exponerar ett API för integration med andra system eller klientapplikationer.
+## Funktioner
 
-## Funktionalitet
+- **Inloggning**: Tre fasta användare (bibliotekarie, låntagare, admin) med olika behörigheter.
+- **Bokhantering**: Lägg till, ta bort, lista och sök böcker.
+- **Utlåning/Återlämning**: Låntagare kan låna och lämna tillbaka böcker.
+- **Status**: Systemet visar om en bok är tillgänglig eller utlånad.
+- **Datahantering**: Alla böcker sparas och läses från en JSON-fil.
 
-- Hantering av böcker (lägg till, ta bort, uppdatera, lista)
-- Hantering av låntagare
-- Utlåning och återlämning av böcker
-- Sökfunktioner för både böcker och låntagare
-- Loggning och felhantering
+## Användarroller
 
-## Kom igång
+- **Bibliotekarie**
+  - Lägg till böcker
+  - Lista alla böcker
+  - Sök böcker
+- **Låntagare**
+  - Låna bok
+  - Lämna tillbaka bok
+  - Visa alla böcker
+- **Admin**
+  - Lägg till bok
+  - Sök bok
+  - Ta bort bok
+  - Visa alla böcker
 
-1. Klona repot:
-2. Navigera till projektmappen:
-3. Bygg projektet:
-4. Starta applikationen:
+## Så här kör du programmet
 
-## Reflektion
+1. Klona repot: git clone https://github.com/johnsjodin/Bibliotek.git
+2. Navigera till projektmappen: cd Bibliotek
+3. Bygg projektet: dotnet build
+4. Starta applikationen: dotnet run --project Bibliotek
 
-Att bygga detta bibliotekssystem med .NET 8 har gett en modern och robust grund för vidareutveckling. Genom att
-använda de senaste teknikerna inom .NET och C# har projektet blivit både effektivt och lätt att underhålla. Arbetet
-har gett insikt i vikten av tydlig struktur, testbarhet och att välja rätt verktyg för uppgiften. Det har också
-visat hur kraftfullt och flexibelt .NET-ekosystemet är för att bygga affärskritiska applikationer.
+## Inloggningsuppgifter (standard)
+
+- Bibliotekarie:  
+- Användarnamn: `librarian`  
+- Lösenord: `librarian123`
+- Låntagare:  
+- Användarnamn: `borrower`  
+- Lösenord: `borrower123`
+- Admin:  
+- Användarnamn: `admin`  
+- Lösenord: `admin123`
+
+## Reflektioner
+
