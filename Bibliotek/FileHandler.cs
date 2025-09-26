@@ -3,6 +3,7 @@ using System.Text.Json;
 
 internal static class FileHandler
 {
+    // Denna metod är AI-genererad
     public static void SaveToFile(List<Book> books, string filePath)
     {
         try
@@ -16,6 +17,7 @@ internal static class FileHandler
         }
     }
 
+    // Denna metod är AI-genererad
     public static List<Book> LoadFromFile(string filePath)
     {
         try
