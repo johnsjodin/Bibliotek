@@ -10,13 +10,20 @@
 
             while (choice != 5)
             {
-                Console.WriteLine("Admin-meny\n");
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("┌───────────────┐");
+                Console.WriteLine("│  Admin-meny   │");
+                Console.WriteLine("└───────────────┘");
+                Console.ResetColor();
                 Console.WriteLine("1. Lägg till bok");
                 Console.WriteLine("2. Sök efter bok");
                 Console.WriteLine("3. Ta bort bok");
                 Console.WriteLine("4. Visa alla böcker");
                 Console.WriteLine("5. Logga ut\n");
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write("Ange val: ");
+                Console.ResetColor();
 
                 choice = ValidateInput.GetInt();
 
@@ -36,10 +43,14 @@
                         repo.ListAll();
                         break;
                     case 5:
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Loggar ut...");
+                        Console.ResetColor();
                         return;
                     default:
+                    Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Ogiltigt val.");
+                        Console.ResetColor();
                         break;
                 }
             }

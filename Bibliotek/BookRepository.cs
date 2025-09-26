@@ -4,10 +4,12 @@ namespace Bibliotek
     {
         private List<Book> _books = new List<Book>();
         private string _filePath = "../../../books.json";
+        //Design Design = new Design();
 
         public BookRepository()
         {
             _books = FileHandler.LoadFromFile(_filePath);
+            
         }
 
         // Lägg till bok i listan
@@ -16,11 +18,16 @@ namespace Bibliotek
             Book book = ValidateInput.ValidateBookInput();
             if (FindBook(book.ISBN) != null)
             {
+                
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Boken med ISBN {book.ISBN} finns redan i systemet.");
+                Console.ResetColor();
                 return;
             }
 
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Boken '{book.Title}' av {book.Author} med ISBN {book.ISBN} har lagts till.");
+            Console.ResetColor();
             _books.Add(book);
             FileHandler.SaveToFile(_books, _filePath);
         }
@@ -39,7 +46,9 @@ namespace Bibliotek
 
         public void RemoveBookInteraction()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;   
             Console.WriteLine("Ta bort bok");
+            Console.ResetColor();
             Console.WriteLine();
             Console.Write("Ange ISBN på boken som ska tas bort: ");
             int isbnToRemove = ValidateInput.GetInt();
@@ -47,12 +56,16 @@ namespace Bibliotek
             if (RemoveBook(isbnToRemove))
             {
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"Boken med ISBN {isbnToRemove} har tagits bort.");
+                Console.ResetColor();
             }
             else
             {
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Ingen bok med ISBN {isbnToRemove} finns i systemet.");
+                Console.ResetColor();
             }
         }
 
@@ -75,9 +88,10 @@ namespace Bibliotek
 
             if (matchedBooks.Count > 0)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("------------------------------------------------------------");
-                Console.WriteLine("Hittade böcker:");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.Clear();
+                Console.WriteLine("Hittade böcker");
+                Console.WriteLine("----------------- ");
                 Console.ResetColor();
 
                 foreach (var book in matchedBooks)
@@ -126,56 +140,107 @@ namespace Bibliotek
         // Lista alla böcker
         public void ListAll()
         {
-            Console.WriteLine("Visar alla böcker\n");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Clear();
+            Console.WriteLine("Visar alla böcker");
+            Console.WriteLine("----------------- ");
+            Console.ResetColor();
 
             if (!_books.Any())
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Inga böcker i systemet.");
+                Console.ResetColor();
                 return;
             }
 
             foreach (var book in _books)
             {
-                Console.WriteLine(book);
+                Console.WriteLine();
+                Console.Write("Titel: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(book.Title);
+                Console.ResetColor();
+                Console.Write(" Författare: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(book.Author);
+                Console.ResetColor();
+                Console.Write(" ISBN: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(book.ISBN);
+                Console.ResetColor();
+
+                if (book.IsBorrowed)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Status: {book.Available}");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Status: {book.Available}");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                }
             }
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("--------------------------------------------------------------");
+            Console.ResetColor();
         }
 
         // Låna en bok
         public void BorrowBook()
         {
-            Console.Write("Ange ISBN-koden för den bok du vill låna: ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("\nAnge ISBN-koden för den bok du vill låna: ");
+            Console.ResetColor();
             int isbn = ValidateInput.GetInt();
             var book = FindBook(isbn);
             if (book == null)
             {
-                Console.WriteLine($"Ingen bok med ISBN {isbn} hittades.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"\nIngen bok med ISBN {isbn} hittades.");
+                Console.ResetColor();
             }
             if (book.IsBorrowed)
             {
-                Console.WriteLine($"Boken '{book.Title}' är redan utlånad.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"\nBoken '{book.Title}' är redan utlånad.");
+                Console.ResetColor();
+                return;
             }
             book.Borrow();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Du har nu lånat boken.");
+            Console.ResetColor();
         }
 
         // Lämna tillbaka en bok
         public void ReturnBook()
         {
-            Console.Write("Ange ISBN-koden för den bok du vill lämna tillbaka: ");
+            Console.Write("\nAnge ISBN-koden för den bok du vill lämna tillbaka: ");
             int isbn = ValidateInput.GetInt();
             var book = FindBook(isbn);
             if (book == null)
             {
-                Console.WriteLine($"Ingen bok med ISBN {isbn} hittades.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"\nIngen bok med ISBN {isbn} hittades.");
+                Console.ResetColor();
                 return;
             }
             if (!book.IsBorrowed)
             {
-                Console.WriteLine($"Boken '{book.Title}' är inte utlånad.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"\nBoken '{book.Title}' är inte utlånad.");
+                Console.ResetColor();
                 return;
             }
             book.Return();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Du har nu lämnat tillbaka boken.");
+            Console.ResetColor();
         }
 
         public static void ShowErrorMessage(string message)
