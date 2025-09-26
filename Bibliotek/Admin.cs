@@ -12,9 +12,9 @@
             {
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("┌───────────────┐");
-                Console.WriteLine("│  Admin-meny   │");
-                Console.WriteLine("└───────────────┘");
+                Console.WriteLine("╔════════════╗");
+                Console.WriteLine("║ Admin Meny ║");
+                Console.WriteLine("╚════════════╝");
                 Console.ResetColor();
                 Console.WriteLine("1. Lägg till bok");
                 Console.WriteLine("2. Sök efter bok");
@@ -42,10 +42,7 @@
                     case 4:
                         repo.ListAll();
                         break;
-                    case 5:
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Loggar ut...");
-                        Console.ResetColor();
+                    case 5:                  
                         return;
                     default:
                     Console.ForegroundColor = ConsoleColor.Red;

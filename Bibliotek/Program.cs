@@ -7,11 +7,11 @@
             var repo = new BookRepository();
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("      * * * * * * * * * * * * * * * *");
-            Console.WriteLine("      * Välkommen till biblioteket! *");
-            Console.WriteLine("      * * * * * * * * * * * * * * * *");
+            Console.WriteLine("╔══════════════════════════════╗");
+            Console.WriteLine("║  Välkommen till Biblioteket  ║");
+            Console.WriteLine("╚══════════════════════════════╝");
             Console.ResetColor();
-            Console.WriteLine("\nVänligen logga in med din användare.");
+            
             
 
             User loggedInUser = LogIn.Login();

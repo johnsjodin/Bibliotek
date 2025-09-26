@@ -13,9 +13,9 @@ namespace Bibliotek
 
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("┌───────────────┐");
-                Console.WriteLine("│     MENY      │");
-                Console.WriteLine("└───────────────┘");
+                Console.WriteLine("╔══════════╗");
+                Console.WriteLine("║ Borrower ║");
+                Console.WriteLine("╚══════════╝");
                 Console.ResetColor();
                 Console.WriteLine("1. Låna bok");
                 Console.WriteLine("2. Lämna tillbaka bok");
@@ -43,9 +43,6 @@ namespace Bibliotek
                         repo.SearchBook();
                         break;
                     case 5:
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Loggar ut...");
-                        Console.ResetColor();
                         return;
                     default:
                         Console.ForegroundColor = ConsoleColor.Red;

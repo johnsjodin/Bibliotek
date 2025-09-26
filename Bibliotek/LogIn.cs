@@ -11,6 +11,7 @@
 
         public static User Login()
         {
+            Console.WriteLine("\nVänligen logga in med din användare.");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Användarnamn: ");
             string name = ValidateInput.GetString().ToLower();
@@ -32,9 +33,6 @@
             if (foundUser != null)
             {
                 Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($" Välkommen {foundUser.Name.ToUpper()}!\n");
-                Console.ResetColor();
                 return foundUser;
             }
             else
