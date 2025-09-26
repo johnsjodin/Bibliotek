@@ -11,10 +11,12 @@
 
         public static User Login()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("Användarnamn: ");
             string name = ValidateInput.GetString().ToLower();
             Console.Write("Lösenord: ");
             string password = ValidateInput.GetString();
+            Console.ResetColor();
 
             User foundUser = null;
 
@@ -29,9 +31,9 @@
 
             if (foundUser != null)
             {
-                Console.WriteLine();
+                Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Välkommen {foundUser.Name.ToUpper()}!");
+                Console.WriteLine($" Välkommen {foundUser.Name.ToUpper()}!\n");
                 Console.ResetColor();
                 return foundUser;
             }

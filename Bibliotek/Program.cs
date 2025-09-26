@@ -11,7 +11,8 @@
             Console.WriteLine("      * Välkommen till biblioteket! *");
             Console.WriteLine("      * * * * * * * * * * * * * * * *");
             Console.ResetColor();
-            Console.WriteLine("Vänligen logga in med din användare.");
+            Console.WriteLine("\nVänligen logga in med din användare.");
+            
 
             User loggedInUser = LogIn.Login();
             bool jusLoggedOut = false;
@@ -20,7 +21,9 @@
             {
                 if(jusLoggedOut)
                 {
-                    Console.WriteLine("Du har loggat ut.Vänligen logga in igen.");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Du har loggat ut.");
+                    Console.ResetColor();
                     jusLoggedOut = false;
 
                 }
@@ -41,7 +44,9 @@
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nInloggning misslyckades.");
+                    Console.ResetColor();
                     Console.Write("Tryck 1 för att försöka igen, eller annan knapp för att avsluta: ");
                     string retryChoice = ValidateInput.GetString();
                     if (retryChoice == "1")

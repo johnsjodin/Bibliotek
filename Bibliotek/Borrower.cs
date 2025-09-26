@@ -10,13 +10,22 @@ namespace Bibliotek
 
             while (choice != 5)
             {
-                Console.WriteLine("Låntagar-meny\n");
+
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("┌───────────────┐");
+                Console.WriteLine("│     MENY      │");
+                Console.WriteLine("└───────────────┘");
+                Console.ResetColor();
                 Console.WriteLine("1. Låna bok");
                 Console.WriteLine("2. Lämna tillbaka bok");
                 Console.WriteLine("3. Visa alla böcker");
                 Console.WriteLine("4. Sök efter bok");
                 Console.WriteLine("5. Logga ut\n");
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write("Ange val: ");
+                Console.ResetColor();
+
 
                 choice = ValidateInput.GetInt();
                 switch (choice)
@@ -34,10 +43,14 @@ namespace Bibliotek
                         repo.SearchBook();
                         break;
                     case 5:
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Loggar ut...");
+                        Console.ResetColor();
                         return;
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Ogiltigt val. Försök igen.");
+                        Console.ResetColor();
                         break;
                 }
             }

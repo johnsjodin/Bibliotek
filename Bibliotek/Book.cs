@@ -2,13 +2,14 @@
 {
     internal class Book
     {
-        public int ISBN { get; }
-        public string Title { get; }
-        public string Author { get; }
-        public bool IsBorrowed { get; private set; }
+        public int ISBN { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public bool IsBorrowed { get;  set; }
         public string Available => IsBorrowed ? "Utlånad" : "Tillgänglig";
 
-        // Constructor för böcker med I-S-B-N
+        public Book() { }
+
         public Book(int isbn, string title, string author)
         {
             ISBN = isbn;
