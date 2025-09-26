@@ -12,5 +12,68 @@
     "Author": "Stephen King",
     "IsBorrowed": false,
     "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 252525,
+    "Title": "Den gudomliga komedin",
+    "Author": "Dante Alighieri",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 232323,
+    "Title": "Stolthet och fordom",
+    "Author": "Jane Austen",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 141414,
+    "Title": "Fahrenheit 451",
+    "Author": " Ray Bradbury",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 363636,
+    "Title": "Det susar i saen",
+    "Author": " Kenneth Grahame",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 97123,
+    "Title": "Brave New World",
+    "Author": "Aldous Huxley",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 414141,
+    "Title": "Rebecca",
+    "Author": "Daphne du Maurier",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 151515,
+    "Title": "Pippi Langstrump",
+    "Author": "Astrid Lindgren",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 393939,
+    "Title": "Den lille prinsen",
+    "Author": "Antoine de Saint-Exupery",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
+  },
+  {
+    "ISBN": 198419,
+    "Title": "1984",
+    "Author": " George Orwel",
+    "IsBorrowed": false,
+    "Available": "Tillg\u00E4nglig"
   }
 ]
