@@ -13,13 +13,6 @@
             Console.ResetColor();
             Console.WriteLine("Vänligen logga in med din användare.");
 
-
-            //Console.WriteLine("\nÄr du bibliotekarie tryck 1:"); // Lärde mig en ny funktion \n som gör radbrytningar
-            //Console.WriteLine("Är du låntagare tryck 2:");
-            //Console.WriteLine("För att avsluta tryck 3:");
-
-            //string userChoice = Console.ReadLine();
-
             User loggedInUser = LogIn.Login();
             bool jusLoggedOut = false;
 

@@ -1,6 +1,6 @@
 namespace Bibliotek
 {
-    internal class Librarian : User
+    internal class Librarian : User, IMenuable
     {
         public Librarian() { }
 
