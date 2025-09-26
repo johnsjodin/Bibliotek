@@ -35,5 +35,88 @@ namespace Bibliotek
                     break;
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        private void BorrowBook(BookRepository repo)
+        {
+            Console.Write("\nAnge ISBN för att låna bok: ");
+            if (int.TryParse(Console.ReadLine(), out int isbn))
+            {
+                try
+                {
+                    if (repo.BorrowBook(isbn))
+                    {
+                        ShowSuccessMessage("Boken har lånats!");
+                    }
+                    else
+                    {
+                        ShowErrorMessage("Boken kunde inte lånas. Den kan vara utlånad eller saknas.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ShowErrorMessage($"Ett fel uppstod vid utlåning: {ex.Message}");
+                }
+            }
+            else
+            {
+                ShowErrorMessage("Ogiltigt ISBN.");
+            }
+        }
+
+        private void ReturnBook(BookRepository repo)
+        {
+            Console.Write("\nAnge ISBN för att lämna tillbaka bok: ");
+            if (int.TryParse(Console.ReadLine(), out int isbn))
+            {
+                try
+                {
+                    if (repo.ReturnBook(isbn))
+                    {
+                        ShowSuccessMessage("Boken har lämnats tillbaka!");
+                    }
+                    else
+                    {
+                        ShowErrorMessage("Boken kunde inte lämnas tillbaka. Den finns kanske inte i systemet.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ShowErrorMessage($"Ett fel uppstod vid återlämning: {ex.Message}");
+                }
+            }
+            else
+            {
+                ShowErrorMessage("Ogiltigt ISBN.");
+            }
+        }
+
+        private void DisplayAllBooks(BookRepository repo) //Here updated method name
+        {
+            Console.WriteLine("\nTillgängliga böcker:");
+            repo.ListAll();
+        }
+
+        private void SearchBook(BookRepository repo) //Here updated method name
+        {
+            Console.Write("Ange sökord (titel eller författare): ");
+            string searchTerm = ValidateInput.GetString();
+            repo.SearchBook();
+        }
+        private void ShowErrorMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        private void ShowSuccessMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+>>>>>>> Stashed changes
     }
 }
