@@ -1,6 +1,6 @@
 namespace Bibliotek
 {
-    internal class Borrower : User
+    internal class Borrower : User, IMenuable
     {
         public Borrower() { }
 

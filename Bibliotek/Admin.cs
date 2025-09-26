@@ -1,6 +1,6 @@
 ﻿namespace Bibliotek
 {
-    internal class Admin : User
+    internal class Admin : User, IMenuable
     {
         public Admin() { }
 

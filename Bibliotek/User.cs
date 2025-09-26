@@ -1,6 +1,6 @@
 ﻿namespace Bibliotek
 {
-    abstract class User
+    abstract class User : IMenuable
     {
         public string Name { get; set; }
         public string Password { get; set; }
