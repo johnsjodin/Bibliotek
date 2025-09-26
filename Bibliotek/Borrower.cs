@@ -5,38 +5,71 @@ namespace Bibliotek
         public Borrower() { }
         public override void ShowMenu(BookRepository repo)
         {
-            Console.WriteLine("\nLåntagare-meny:");
+            bool running = true;
+
+            while (running)
+            {
+                Console.Clear();
+                DisplayHeader();
+                DisplayMenuOptions();
+
+                string choice = ValidateInput.GetString();
+
+                HandleUserChoice(choice, repo);
+
+                if (choice != "5") // Visa inte paus vid utloggning
+                {
+                    Console.WriteLine("\nTryck på valfri tangent för att fortsätta...");
+                    Console.ReadKey();
+                }
+            }
+        }
+
+        private void DisplayHeader()
+        {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("--------------------");
+            Console.WriteLine("***Borrower Menu***");
+            Console.WriteLine("--------------------");
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+
+        private void DisplayMenuOptions()
+        {
             Console.WriteLine("1. Låna bok");
             Console.WriteLine("2. Lämna tillbaka bok");
             Console.WriteLine("3. Visa alla böcker");
-            Console.WriteLine("4. Logga ut\n");
+            Console.WriteLine("4. Sök efter bok");
+            Console.WriteLine("5. Logga ut\n");
             Console.Write("Ange val: ");
+        }
 
-            string choice = ValidateInput.GetString();
-
-            // Hantera låntagarens val här
+        private void HandleUserChoice(string choice, BookRepository repo)
+        {
             switch (choice)
             {
                 case "1":
-                    Console.WriteLine("Låna");
-
+                    BorrowBook(repo);
                     break;
                 case "2":
-                    Console.WriteLine("Lämna");
+                    ReturnBook(repo);
                     break;
                 case "3":
-                    Console.WriteLine("Visa alla böcker...");
+                    DisplayAllBooks(repo);
                     break;
                 case "4":
+                    SearchBook(repo);
+                    break;
+                case "5":
                     Console.WriteLine("Loggar ut...");
                     break;
                 default:
-                    Console.WriteLine("Ogiltigt val.");
+                    ShowErrorMessage("Ogiltigt val. Försök igen.");
                     break;
             }
         }
-<<<<<<< Updated upstream
-=======
 
         private void BorrowBook(BookRepository repo)
         {
@@ -117,6 +150,5 @@ namespace Bibliotek
             Console.WriteLine(message);
             Console.ResetColor();
         }
->>>>>>> Stashed changes
     }
 }
