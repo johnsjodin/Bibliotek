@@ -2,6 +2,7 @@
 {
     internal class ValidateInput
     {
+        // Loopar tills inmatningen är en giltig int.
         public static int GetInt()
         {
             int intInput;
@@ -13,6 +14,7 @@
             }
             return intInput;
         }
+        // Loopar tills inmatningen är en giltig double.
         public static double GetDouble()
         {
             double doubleInput;
@@ -33,6 +35,7 @@
             }
             return stringInput;
         }
+        // Specialmetod för att skapa en ny bok med validerad input.
         public static Book ValidateBookInput()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -45,6 +48,7 @@
             Console.ResetColor();
             return new Book(isbn, title, author);
         }
+        // Skriver ut ett felmeddelande i röd färg.
         public static void ShowErrorMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -52,6 +56,7 @@
             Console.ResetColor();
         }
 
+        // Skriver ut ett lyckat meddelande i grön färg.
         public static void ShowSuccessMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Green;

@@ -10,6 +10,7 @@
 
         public Book() { }
 
+        // Konstruktor som initierar en bok med ISBN, titel och författare
         public Book(int isbn, string title, string author)
         {
             ISBN = isbn;

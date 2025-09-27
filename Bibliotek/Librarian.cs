@@ -4,6 +4,7 @@ namespace Bibliotek
     {
         public Librarian() { }
 
+        // Metoden visar bibliotekariens meny och hanterar dess val
         public override void ShowMenu(BookRepository repo)
         {
             int choice = 0;
@@ -24,9 +25,10 @@ namespace Bibliotek
                 Console.Write("Ange val: ");
                 Console.ResetColor();
 
-
+                // Hämtar användarens val
                 choice = ValidateInput.GetInt();
 
+                // Hanterar bibliotekariens menyval
                 switch (choice)
                 {
                     case 1:
