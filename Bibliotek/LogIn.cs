@@ -4,11 +4,13 @@
     {
         private static List<User> users = new List<User>
         {
+            // Här finns en bibliotekarie, en låntagare och en administratör.
             new Librarian { Name = "librarian", Password = "librarian123" },
             new Borrower { Name = "borrower", Password = "borrower123" },
             new Admin { Name = "admin", Password = "admin123" }
         };
 
+        // Metod för att logga in en användare
         public static User Login()
         {
             Console.WriteLine("\nVänligen logga in med din användare.");
@@ -21,6 +23,7 @@
 
             User foundUser = null;
 
+            // Loopar igenom listan med användare och letar efter match
             foreach (User u in users)
             {
                 if (u.Name == name && u.Password == password)

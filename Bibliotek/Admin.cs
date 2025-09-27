@@ -4,10 +4,12 @@
     {
         public Admin() { }
 
+        // Metoden som visar admins meny och hanterar dess val
         public override void ShowMenu(BookRepository repo)
         {
             int choice = 0;
 
+            // Kör menyn tills användaren väljer att logga ut (val 5)
             while (choice != 5)
             {
 

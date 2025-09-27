@@ -6,17 +6,18 @@
         {
             var repo = new BookRepository();
 
+            // Sätter textfärg till grön och skriver ut en välkomstbanner
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("╔══════════════════════════════╗");
             Console.WriteLine("║  Välkommen till Biblioteket  ║");
             Console.WriteLine("╚══════════════════════════════╝");
-            Console.ResetColor();
-            
-            
+            Console.ResetColor();     
 
             User loggedInUser = LogIn.Login();
             bool jusLoggedOut = false;
 
+
+            // Huvudloopen för programmet
             while (true)
             {
                 if(jusLoggedOut)
@@ -28,6 +29,7 @@
 
                 }
 
+                // Om ingen användare är inloggad, försök logga in
                 if (loggedInUser == null)
                 {
                     

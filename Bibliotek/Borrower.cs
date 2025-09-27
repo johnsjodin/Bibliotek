@@ -4,6 +4,7 @@ namespace Bibliotek
     {
         public Borrower() { }
 
+        // Metoden visar menyn för låntagaren och hanterar dess val
         public override void ShowMenu(BookRepository repo)
         {
             int choice = 0;
@@ -26,7 +27,7 @@ namespace Bibliotek
                 Console.Write("Ange val: ");
                 Console.ResetColor();
 
-
+                // Läser in användarens val
                 choice = ValidateInput.GetInt();
                 switch (choice)
                 {
