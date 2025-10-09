@@ -135,35 +135,68 @@ namespace Bibliotek
                 return;
             }
 
-            foreach (var book in _books)
-            {
-                Console.WriteLine();
-                Console.Write("Titel: ");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(book.Title);
-                Console.ResetColor();
-                Console.Write(" Författare: ");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(book.Author);
-                Console.ResetColor();
-                Console.Write(" ISBN: ");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine(book.ISBN);
-                Console.ResetColor();
+            int pageSize = 5;
+            int pageAmount = (int)Math.Ceiling((double)_books.Count / pageSize);
+            int currentPage = 1;
 
-                if (book.IsBorrowed)
+            while (true)
+            {
+                //String interpolation för att användaren ska se vilken sida de är på.
+                Console.WriteLine($"\nSida {currentPage} av {pageAmount}");
+
+                //pageData är de böckerna som ska visas i foreach loopen, per sida i datasetet(-books).
+                var pagedData = _books
+                    .Skip((currentPage - 1) * pageSize)
+                    .Take(pageSize);
+
+                foreach (var book in pagedData)
                 {
-                    ValidateInput.ShowErrorMessage($"Status: {book.Available}");
                     Console.WriteLine();
+                    Console.Write("Titel: ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(book.Title);
+                    Console.ResetColor();
+                    Console.Write(" Författare: ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write(book.Author);
+                    Console.ResetColor();
+                    Console.Write(" ISBN: ");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(book.ISBN);
+                    Console.ResetColor();
+
+                    if (book.IsBorrowed)
+                    {
+                        ValidateInput.ShowErrorMessage($"Status: {book.Available}");
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        ValidateInput.ShowSuccessMessage($"Status: {book.Available}");
+                        Console.WriteLine();
+                    }
                 }
-                else
+
+                Console.WriteLine("\nTryck 'N' för att komma till nästa sida, tryck 'P' för att komma till föregående sida eller 'Q' för att återgå till programmet.");
+                //läser in knapptrycket istället för data
+                ConsoleKeyInfo input = Console.ReadKey();
+         
+                //Else if för att kunna bläddra sidor eller återgå till programmet.
+                if (input.Key == ConsoleKey.N && currentPage < pageAmount)
                 {
-                    ValidateInput.ShowSuccessMessage($"Status: {book.Available}");
-                    Console.WriteLine();
+                    currentPage++;
+                }
+                else if (input.Key == ConsoleKey.P && currentPage > 1)
+                {
+                    currentPage--;
+                }
+                else if (input.Key == ConsoleKey.Q)
+                {
+                    break;
                 }
             }
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("--------------------------------------------------------------");
+            Console.WriteLine("\n--------------------------------------------------------------");
             Console.ResetColor();
         }
 

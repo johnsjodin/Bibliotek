@@ -6,6 +6,17 @@ Charlie
 Frans
 John
 Daniel
+
+Ändringar för kompletterings uppgiften har gjorts av Axel Waltersson.
+Features som är tillagda är paginering och statistik.
+Reflektion:
+Då jag inte var delaktig i att bygga programmet så fick jag först skaffa mig en förståelse för hur de hade byggt upp programmet.
+Jag använde Copilot för att hitta rätt kod-struktur för statistik klassen. Det som tog längst tid var att testa sig fram innan jag förstod kod-logiken.
+Paginering var ett främmande koncept, jag trodde lösningen skulle vara svårare, men det fanns "enkla" sätt att lösa uppgiften på.
+Det som tog tid var att förstå sig på linq och matematiken för att kunna lösa problemet med en While-loop och en else if sats.
+Den största lärdomen jag tar med mig är just hur svårt det är att programmera något man inte vet grunden i och när man själv uppdaterar ett program,
+jag förstår att det måste varit svårt att göra detta i grupp när 6 personer gör ändringar i koden och hanteringen i GIT.
+
 📚 Om Applikationen
 Detta är ett konsolbaserat bibliotekssystem utvecklat i C# (.NET 8) av Grupp 6. Applikationen gör det möjligt att hantera böcker, användare och låneprocesser på ett enkelt och användarvänligt sätt. Systemet är uppdelat i olika användarroller: Admin, Librarian (bibliotekarie) och Borrower (låntagare), där varje roll har olika behörigheter och funktioner.
 
