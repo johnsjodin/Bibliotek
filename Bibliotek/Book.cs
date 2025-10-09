@@ -1,11 +1,12 @@
 ﻿namespace Bibliotek
 {
-    internal class Book
+    public class Book
     {
         public int ISBN { get; set; }
         public string Title { get; set; }
         public string Author { get; set; }
         public bool IsBorrowed { get;  set; }
+        public int BorrowCount { get; set; }
         public string Available => IsBorrowed ? "Utlånad" : "Tillgänglig";
 
         public Book() { }
@@ -18,12 +19,13 @@
             Author = author;
         }
 
-        // Låna bok
+        // Låna bok och öka värdet på antal lånade böcker under statistik
         public bool Borrow()
         {
             if (IsBorrowed) return false;
             IsBorrowed = true;
-            return true;
+            BorrowCount++;
+            return true;  
         }
 
         // Lämna tillbaka bok
