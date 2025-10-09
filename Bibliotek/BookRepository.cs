@@ -187,7 +187,6 @@ namespace Bibliotek
             book.Borrow();
             FileHandler.SaveToFile(_books, _filePath);
             ValidateInput.ShowSuccessMessage($"\nDu har nu lånat boken '{book.Title}'.");
-
         }
 
         // Lämna tillbaka en bok
@@ -209,7 +208,11 @@ namespace Bibliotek
             book.Return();
             FileHandler.SaveToFile(_books, _filePath);
             ValidateInput.ShowSuccessMessage("Du har nu lämnat tillbaka boken.");
+        }
 
+        public void ShowStatistics()
+        {
+            Statistics.LibraryStatistics(_books);
         }
     }
 }

@@ -4,6 +4,7 @@
     "Title": "The Nile",
     "Author": "Liza Marklund",
     "IsBorrowed": false,
+    "BorrowCount": 0,
     "Available": "Tillg\u00E4nglig"
   },
   {
@@ -11,6 +12,7 @@
     "Title": "The Green Mile",
     "Author": "Stephen King",
     "IsBorrowed": false,
+    "BorrowCount": 0,
     "Available": "Tillg\u00E4nglig"
   },
   {
@@ -18,6 +20,7 @@
     "Title": "Den gudomliga komedin",
     "Author": "Dante Alighieri",
     "IsBorrowed": false,
+    "BorrowCount": 0,
     "Available": "Tillg\u00E4nglig"
   },
   {
@@ -25,20 +28,23 @@
     "Title": "Stolthet och fordom",
     "Author": "Jane Austen",
     "IsBorrowed": false,
+    "BorrowCount": 0,
     "Available": "Tillg\u00E4nglig"
   },
   {
     "ISBN": 141414,
     "Title": "Fahrenheit 451",
-    "Author": " Ray Bradbury",
-    "IsBorrowed": false,
-    "Available": "Tillg\u00E4nglig"
+    "Author": "Ray Bradbury",
+    "IsBorrowed": true,
+    "BorrowCount": 1,
+    "Available": "Utl\u00E5nad"
   },
   {
     "ISBN": 363636,
     "Title": "Det susar i saen",
-    "Author": " Kenneth Grahame",
+    "Author": "Kenneth Grahame",
     "IsBorrowed": false,
+    "BorrowCount": 0,
     "Available": "Tillg\u00E4nglig"
   },
   {
@@ -46,6 +52,7 @@
     "Title": "Brave New World",
     "Author": "Aldous Huxley",
     "IsBorrowed": false,
+    "BorrowCount": 0,
     "Available": "Tillg\u00E4nglig"
   },
   {
@@ -53,6 +60,7 @@
     "Title": "Rebecca",
     "Author": "Daphne du Maurier",
     "IsBorrowed": false,
+    "BorrowCount": 0,
     "Available": "Tillg\u00E4nglig"
   },
   {
@@ -60,6 +68,7 @@
     "Title": "Pippi Langstrump",
     "Author": "Astrid Lindgren",
     "IsBorrowed": false,
+    "BorrowCount": 1,
     "Available": "Tillg\u00E4nglig"
   },
   {
@@ -67,13 +76,15 @@
     "Title": "Den lille prinsen",
     "Author": "Antoine de Saint-Exupery",
     "IsBorrowed": false,
+    "BorrowCount": 0,
     "Available": "Tillg\u00E4nglig"
   },
   {
     "ISBN": 198419,
     "Title": "1984",
-    "Author": " George Orwel",
+    "Author": "George Orwel",
     "IsBorrowed": false,
+    "BorrowCount": 0,
     "Available": "Tillg\u00E4nglig"
   }
 ]

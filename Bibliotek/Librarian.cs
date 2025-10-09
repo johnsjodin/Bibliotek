@@ -9,7 +9,7 @@ namespace Bibliotek
         {
             int choice = 0;
 
-            while (choice != 4)
+            while (choice != 5)
             {
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -20,7 +20,8 @@ namespace Bibliotek
                 Console.WriteLine("1. Lägg till bok.");
                 Console.WriteLine("2. Visa alla böcker.");
                 Console.WriteLine("3. Sök efter en bok.");
-                Console.WriteLine("4. Logga ut\n");
+                Console.WriteLine("4. Statistik");
+                Console.WriteLine("5. Logga ut\n");
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write("Ange val: ");
                 Console.ResetColor();
@@ -41,6 +42,9 @@ namespace Bibliotek
                         repo.SearchBook();
                         break;
                     case 4:
+                        repo.ShowStatistics();
+                        break;
+                    case 5:
                         return;
                     default:
                         ValidateInput.ShowErrorMessage("Ogiltigt val. Vänligen försök igen.");
